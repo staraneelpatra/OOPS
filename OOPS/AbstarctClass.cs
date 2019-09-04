@@ -1,54 +1,61 @@
 ﻿using System;
 namespace OOPS
 {
-    public interface IMyInterface
+    public interface IMachine
     {
-         void show();
+        void Display();
+    }
+    public interface IAutomobile
+    {
+        void Display();
     }
 
-    public struct MyStruct
+    public abstract class Absclass1
+    {
+       public abstract void Display();
+    }
+
+    public abstract class Absclass2
+    {
+       public abstract void Display();
+    }
+    public struct Mystruct1 
+    {
+    }
+    public struct MyStruct2
     {
 
     }
-
-    public class MyClass
+    public class Machine : Absclass2, IAutomobile
     {
-
-    }
-    public abstract class Measurement:MyClass, IMyInterface
-    {
-        private int k = 3;
-        protected Measurement(){}
-          Measurement(int k){
-            Console.WriteLine("Called from abstract class constructor"+k);
-        }
-        public abstract void Area(int a);
-        public void Display()
+        public override void Display()
         {
-            Console.WriteLine("Abstract implemented method");
+            throw new NotImplementedException();
         }
-        public void show(){}
-            
-
     }
-    public class AbstarctClass: Measurement
+
+    public class Automobile
     {
         
-        public override void Area(int a)
-
-        {  
-            Console.WriteLine("Area : "+ a);
+    }
+    public class Trucks : Automobile,
+    {
+        public override void Display()
+        {
+            throw new NotImplementedException();
         }
 
+        void IMachine.Display()
+        {
+            throw new NotImplementedException();
+        }
     }
-    class Mainclass : IMyInterface{
-        public void show(){}
+    public class AbstractClass
+    {
+        public static void Main(string[] args)
+        {
 
-        public static void Main(){
-            AbstarctClass abstarctClass = new AbstarctClass();
-            abstarctClass.Area(5);
-            abstarctClass.Display();
-                         
         }
     }
 }
+    
