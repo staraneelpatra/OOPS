@@ -4,9 +4,9 @@
     namespace OOPS
     {
         
-        class Oper <T>
+        class Oper <T,T1> //where T1:IEnumerable
         {
-            public void Sum(T a, T b)
+            public void Sum(T a, T1 b)
             {
                 dynamic x = a;
                 dynamic y = b;
@@ -22,6 +22,16 @@
                 //return x + y;
             }
         }
+
+    class Multi 
+    {
+        public int Product1 <T,T1>(T a, T1 b) //where T1:Int64//Oper<float,int>
+        {
+            dynamic x = a;
+            dynamic y = b;
+            return x * y;
+        }
+    }
         public class Genriclist
         {
             //List<int> l1 = new List<int>();
@@ -29,10 +39,13 @@
                 {
                 List<Student> students = new List<Student>();
 
-                Oper<int> oper = new Oper<int>();
-                oper.Sum(4, 5);
-                Oper<float> oper1 = new Oper<float>();
-                oper1.Sub(9.5f, 3.1f); 
+                Oper<int,float> oper = new Oper<int,float>();
+                oper.Sum(4, 5.78f);
+                Oper<float,float> oper1 = new Oper<float,float>();
+                oper1.Sub(9.5f, 3.1f);
+
+                Multi m = new Multi();
+                m.Product1<float,int>(4.3f, 3);
 
                 }
         }

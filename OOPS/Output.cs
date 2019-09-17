@@ -17,7 +17,7 @@ namespace OOPS
         }
     }
 
-    public class Tiny : Parent
+    public class Tiny : Small
     {
         public override void Add(int y, int u)
         {
